@@ -1,5 +1,9 @@
 package CodingChallenges.Challenge1;
 
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+
 /**
  * C1Solution
  */
@@ -8,37 +12,47 @@ public class C1Solution {
     public static void main(String[] args) {
         
         int[] array = {1, 3, 6, 4, 1, 2};
+        int min = Integer.MAX_VALUE;
+        HashMap<Integer,Integer> hashMap = new HashMap<Integer, Integer>();
 
-        int smallest = 100000000;
+        int smallestMissing = Integer.MIN_VALUE;
         
         
         for(int i = 0; i < array.length; i++){
-            int current = 0;
-            int behindCurrent = 0;
-            if(i == array.length - 1){
-                current = array[i];
-            }
-            else{
-                current = array[i+1];
-                behindCurrent = array[i];
-            }
-            
-
-            if(behindCurrent >= 1 && current >= 1 && behindCurrent <= current-2 && behindCurrent + 1 < smallest){
-                smallest = behindCurrent + 1;
-            }
-            else if(behindCurrent >= 1 && current >= 1 && current <= behindCurrent-2 && current + 1 < smallest){
-                smallest = current + 1;
-            }
-            else if(current == behindCurrent){
-                if(current + 1 < smallest){
-                    smallest = current + 1;
-                }
-            }
-
+            hashMap.put(i, array[i]);
         }
 
-        System.out.println(smallest);
+        for (Map.Entry<Integer,Integer> entry : hashMap.entrySet()) {        
+            int current = entry.getValue();
+            if(!hashMap.containsValue(current - 1) && current - 1 > 0 && smallestMissing < min){
+                smallestMissing = current - 1;
+            }
+        }
+
+        System.out.println(smallestMissing);
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

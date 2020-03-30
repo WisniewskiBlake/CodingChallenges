@@ -20,8 +20,8 @@ public class C1Solution {
             if(behindCurrent >= 1 && current >= 1 && behindCurrent <= current-2){
                 smallest = behindCurrent + 1;
             }
-            else if(behindCurrent >= 1 && current >= 1 && behindCurrent <= current-2){
-
+            else if(behindCurrent >= 1 && current >= 1 && current <= behindCurrent-2){
+                
             }
 
         }

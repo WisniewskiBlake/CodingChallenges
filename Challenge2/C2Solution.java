@@ -23,6 +23,7 @@ public class C2Solution {
         LinkedList<String> imageList = new LinkedList<>();
         LinkedList<String> locationList = new LinkedList<>();
         LinkedList<String> timeList = new LinkedList<>();
+        LinkedList<String> combinedList = new LinkedList<>();
         
         for (int i = 0; i < infoArray.length; i++) {                        
             if(i == 0){

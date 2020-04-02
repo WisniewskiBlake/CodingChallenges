@@ -34,8 +34,7 @@ public class C2Solution {
                 imageList.add(formatArray[1]);
             }
             else if(i == 1){
-                locationList.add(infoArray[i]);
-                combinedList.add(infoArray[i] + " ");                
+                locationList.add(infoArray[i]);                                
             }
             else if(i == 2){
                 timeList.add(infoArray[i]);
@@ -54,8 +53,12 @@ public class C2Solution {
 
         LinkedList<String> sortedTimeList = sortList(timeList);
                 
-        for (int i = 0; i < sortedTimeList.size(); i++) {
-            System.out.println(sortedTimeList.get(i));
+        for (int i = 0; i < imageList.size(); i++) {
+            combinedList.add(locationList.get(i) + " " + imageList.get(i));                        
+        }
+
+        for (int i = 0; i < imageList.size(); i++) {            
+            System.out.println(combinedList.get(i));            
         }
 
 

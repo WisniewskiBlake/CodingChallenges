@@ -26,7 +26,12 @@ public class C2Solution {
         LinkedList<String> imageList = new LinkedList<>();
         LinkedList<String> locationList = new LinkedList<>();
         LinkedList<String> timeList = new LinkedList<>();
+        LinkedList<String> sortedTimeList = new LinkedList<>();
+        LinkedList<Integer> locationIndices = new LinkedList<>();
         LinkedList<String> combinedList = new LinkedList<>();
+
+        
+
         
         for (int i = 0; i < infoArray.length; i++) {                        
             if(i == 0){
@@ -37,7 +42,8 @@ public class C2Solution {
                 locationList.add(infoArray[i]);                                
             }
             else if(i == 2){
-                timeList.add(infoArray[i]);
+                timeList.add(infoArray[i-1] + " " + infoArray[i]);
+                sortedTimeList.add(infoArray[i-1] + " " + infoArray[i]);
             }
             if(i != 0 && (i % 3) == 0){
                 String[] formatArray = infoArray[i].split("\\.");
@@ -47,18 +53,47 @@ public class C2Solution {
                 locationList.add(infoArray[i]);
             }
             else if(i != 2 && (i % 3) == 2){
-                timeList.add(infoArray[i]);
+                timeList.add(infoArray[i-1] + " " + infoArray[i]);
+                sortedTimeList.add(infoArray[i-1] + " " + infoArray[i]);
             }
         }
 
-        LinkedList<String> sortedTimeList = sortList(timeList);
+        
+        //sort list of times
+        sortList(sortedTimeList);
+
+        //find number of unique locations
+        // int uniqueLocations = 0;
+        LinkedList<String> repeatedLocList = new LinkedList<>();
+        for (int i = 0; i < locationList.size(); i++){
+            int over10Repeats = 0; 
+            // Move the index ahead while 
+            // there are duplicates
+            String[] location = sortedTimeList.get(i).split(" ");
+            String[] nextLocation = sortedTimeList.get(i+1).split(" "); 
+            while (i < locationList.size() - 1 && location[0] == nextLocation[0]) 
+            { 
+                i++;
+                over10Repeats++;
+                if(over10Repeats >= 10){
+                    repeatedLocList.add(nextLocation[0]);
+                } 
+            } 
+            locationIndices.add(i + 1); 
+        } 
+       
+
+        for (int i = 0; i < sortedTimeList.size(); i++) {
+                                  
+        }
                 
         for (int i = 0; i < imageList.size(); i++) {
             combinedList.add(locationList.get(i) + " " + imageList.get(i));                        
         }
 
         for (int i = 0; i < imageList.size(); i++) {            
-            System.out.println(combinedList.get(i));            
+            //System.out.println(combinedList.get(i)); 
+            System.out.println(sortedTimeList.get(i));           
         }
 
 

@@ -1,5 +1,8 @@
 package CodingChallenges.Challenge2;
 
+import java.text.Collator;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 /**
@@ -46,8 +49,13 @@ public class C2Solution {
             }
         }
 
+        LinkedList<String> sortedTimeList = sortList(timeList);
+        // Collections.sort(newTimeList);
         
+        for (int i = 0; i < sortedTimeList.size(); i++) {
+            System.out.println(sortedTimeList.get(i));
 
+        }
 
 
 
@@ -60,7 +68,16 @@ public class C2Solution {
 
     }
 
+    static public LinkedList<String> sortList(LinkedList<String> list){
+        Collections.sort(list, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return Collator.getInstance().compare(o1, o2);
+            }
+        });
 
+        return list;
+    }
 
 
 

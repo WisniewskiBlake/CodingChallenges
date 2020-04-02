@@ -16,10 +16,10 @@ public class C2Solution {
         String newInfo = info.replaceAll("\n", ",");
         String[] infoArray = newInfo.split(",");
 
-        // String[] imageArray = new String[infoArray.length / 3];
+        String[] infoRows = info.split("\n");
         // String[] locationArray = new String[infoArray.length / 3];        
         // String[] timeArray = new String[infoArray.length / 3];
-        // int j = 0;
+        int j = 0;
         // int k = 0;
         // int l = 0;
 
@@ -30,16 +30,19 @@ public class C2Solution {
         
         for (int i = 0; i < infoArray.length; i++) {                        
             if(i == 0){
-                imageList.add(infoArray[i]);
+                String[] formatArray = infoArray[i].split("\\.");
+                imageList.add(formatArray[1]);
             }
             else if(i == 1){
                 locationList.add(infoArray[i]);
+                combinedList.add(infoArray[i] + " ");                
             }
             else if(i == 2){
                 timeList.add(infoArray[i]);
             }
             if(i != 0 && (i % 3) == 0){
-                imageList.add(infoArray[i]);
+                String[] formatArray = infoArray[i].split("\\.");
+                imageList.add(formatArray[1]);
             }
             else if(i != 1 && (i % 3) == 1){
                 locationList.add(infoArray[i]);
@@ -50,11 +53,9 @@ public class C2Solution {
         }
 
         LinkedList<String> sortedTimeList = sortList(timeList);
-        // Collections.sort(newTimeList);
-        
+                
         for (int i = 0; i < sortedTimeList.size(); i++) {
             System.out.println(sortedTimeList.get(i));
-
         }
 
 

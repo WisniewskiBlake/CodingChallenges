@@ -13,13 +13,41 @@ public class C2Solution {
         String newInfo = info.replaceAll("\n", ",");
         String[] infoArray = newInfo.split(",");
 
-        String[] imageArray = new String[infoArray.length / 3];
-        String[] locationArray = new String[infoArray.length / 3];        
-        String[] timeArray = new String[infoArray.length / 3];
-        int j = 0;
-        int k = 0;
-        int l = 0;
+        // String[] imageArray = new String[infoArray.length / 3];
+        // String[] locationArray = new String[infoArray.length / 3];        
+        // String[] timeArray = new String[infoArray.length / 3];
+        // int j = 0;
+        // int k = 0;
+        // int l = 0;
 
+        LinkedList<String> imageList = new LinkedList<>();
+        LinkedList<String> locationList = new LinkedList<>();
+        LinkedList<String> timeList = new LinkedList<>();
+        
+        for (int i = 0; i < infoArray.length; i++) {                        
+            if(i == 0){
+                imageList.add(infoArray[i]);
+            }
+            else if(i == 1){
+                locationList.add(infoArray[i]);
+            }
+            else if(i == 2){
+                timeList.add(infoArray[i]);
+            }
+            if(i != 0 && (i % 3) == 0){
+                imageList.add(infoArray[i]);
+            }
+            else if(i != 0 && (i % 3) == 0){
+                locationList.add(infoArray[i]);
+            }
+            // else if(3 % i == 3){
+            //     timeArray[l] = infoArray[i];
+            //     l++;
+            // }
+        }
+
+        System.out.println(infoArray[0] + infoArray[3] + infoArray[6]);
+        System.out.println(imageList.get(0) + imageList.get(1) + imageList.get(2));
         
 
 

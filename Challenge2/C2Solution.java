@@ -37,17 +37,14 @@ public class C2Solution {
             if(i != 0 && (i % 3) == 0){
                 imageList.add(infoArray[i]);
             }
-            else if(i != 0 && (i % 3) == 0){
+            else if(i != 1 && (i % 3) == 1){
                 locationList.add(infoArray[i]);
             }
-            // else if(3 % i == 3){
-            //     timeArray[l] = infoArray[i];
-            //     l++;
-            // }
+            else if(i != 2 && (i % 3) == 2){
+                timeList.add(infoArray[i]);
+            }
         }
 
-        System.out.println(infoArray[0] + infoArray[3] + infoArray[6]);
-        System.out.println(imageList.get(0) + imageList.get(1) + imageList.get(2));
         
 
 

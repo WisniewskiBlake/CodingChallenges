@@ -74,7 +74,8 @@ public class C2Solution {
                     i++;
                     over10Repeats++;
                     if(over10Repeats >= 10){
-                        repeatedLocList.add(sortedLocList.get(i));
+                        //do something else than add it to a list
+                        repeatedLocList.add(sortedLocList.get(i).trim());
                     }                    
                 }                     
         } 
@@ -92,6 +93,7 @@ public class C2Solution {
                 while(p <= sortedTimeList.size() - 1 && sortedTimeList.get(p).contains(stringInTL[1])){
                     if(sortedTimeList.get(p).contains(stringInTL[3] + " " + stringInTL[4])){
                         String newEntry = combinedList.get(i).trim();
+                        String[] repeatedLoc = newEntry.split(" ");
                         String finalEntry = newEntry.replaceAll("\\s", Integer.toString(o+1));
                         combinedList.set(i, finalEntry);                        
                     }

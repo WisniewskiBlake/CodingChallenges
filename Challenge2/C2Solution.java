@@ -113,6 +113,8 @@ public class C2Solution {
             for(int p = 0; p < sortedTimeList.size(); p++){
                 while(p != sortedTimeList.size() - 1 && sortedTimeList.get(p).contains(stringInTL[1])){
                     if(sortedTimeList.get(p).contains(stringInTL[3] + " " + stringInTL[4])){
+                        String newEntry = combinedList.get(i).trim();
+                        newEntry.replaceAll("\\s", Integer.toString(o+1));
                         combinedList.get(i).replaceAll("\\s", Integer.toString(o+1));
                         
                     }

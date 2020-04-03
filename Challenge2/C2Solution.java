@@ -74,7 +74,7 @@ public class C2Solution {
         
         LinkedList<String> repeatedLocList = new LinkedList<>();
         locationIndices.add(0);
-        for (int i = 0; i < locationList.size(); i++){
+        for (int i = 0; i < locationList.size() - 1; i++){
             int over10Repeats = 0; 
             // Move the index ahead while 
             // there are duplicates
@@ -91,29 +91,52 @@ public class C2Solution {
                                       
         } 
        
-        int[] order = new int[timeList.size()];
-        int n = 0;
-        for (int i = 0; i < locationIndices.size() - 1; i++) {
+        LinkedList<Integer> order = new LinkedList<>();
+        // int n = 0;
+        // for (int i = 0; i < locationIndices.size() - 1; i++) {
             
-            for (int m = locationIndices.get(i); m < locationIndices.get(i + 1); m++) {
-                String[] stringInSortedTL = sortedTimeList.get(m).split(" ");
-                String[] stringInSingleTL = sortedTimeList.get(m).split(" ");
-                order[n++] = singleTimeList.indexOf(stringInSortedTL[3] + " " + stringInSortedTL[4]);
-            }
+        //     for (int m = locationIndices.get(i); m < locationIndices.get(i + 1); m++) {
+        //         String[] stringInSortedTL = sortedTimeList.get(m).split(" ");
+        //         String[] stringInSingleTL = sortedTimeList.get(m).split(" ");
+        //         order[n++] = singleTimeList.indexOf(stringInSortedTL[3] + " " + stringInSortedTL[4]);
+        //     }
                                   
-        }
-                
+        // }
+
         for (int i = 0; i < imageList.size(); i++) {
             combinedList.add(locationList.get(i) + " " + imageList.get(i));                        
         }
 
-        for (int i = 0; i < imageList.size(); i++) {            
-            //System.out.println(combinedList.get(i)); 
-            System.out.println(timeList.get(i));           
+        for(int i = 0; i < timeList.size(); i++){
+            int o = 0;
+            String[] stringInTL = timeList.get(i).split(" ");
+            for(int p = 0; p < sortedTimeList.size(); p++){
+                while(p != sortedTimeList.size() - 1 && sortedTimeList.get(p).contains(stringInTL[1])){
+                    if(sortedTimeList.get(p).contains(stringInTL[3] + " " + stringInTL[4])){
+                        combinedList.get(i).replaceAll(" ", Integer.toString(o+1));
+                        
+                    }
+                    o++;
+                    p++;
+
+                }
+            }
+
         }
-        for (int i = 0; i < singleTimeList.size(); i++) {            
+
+
+
+
+                
+        
+
+        for (int i = 0; i < imageList.size(); i++) {            
+            System.out.println(combinedList.get(i)); 
+            //System.out.println(timeList.get(i));           
+        }
+        for (int i = 0; i < locationIndices.size(); i++) {            
             //System.out.println(combinedList.get(i)); 
-            System.out.println(order[i]);           
+            //System.out.println(locationIndices.get(i));           
         }
 
 

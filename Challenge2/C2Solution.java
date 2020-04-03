@@ -28,6 +28,7 @@ public class C2Solution {
         LinkedList<String> sortedLocList = new LinkedList<>();
         LinkedList<String> timeList = new LinkedList<>();
         LinkedList<String> sortedTimeList = new LinkedList<>();
+        LinkedList<String> singleTimeList = new LinkedList<>();
         LinkedList<Integer> locationIndices = new LinkedList<>();
         LinkedList<String> combinedList = new LinkedList<>();
 
@@ -46,6 +47,8 @@ public class C2Solution {
             else if(i == 2){
                 timeList.add(infoArray[i-1] + " " + infoArray[i]);
                 sortedTimeList.add(infoArray[i-1] + " " + infoArray[i]);
+                String[] singleTime = infoArray[i].split(" ");
+                singleTimeList.add(singleTime[1] + " " + singleTime[2]);
             }
             if(i != 0 && (i % 3) == 0){
                 String[] formatArray = infoArray[i].split("\\.");
@@ -58,6 +61,8 @@ public class C2Solution {
             else if(i != 2 && (i % 3) == 2){
                 timeList.add(infoArray[i-1] + " " + infoArray[i]);
                 sortedTimeList.add(infoArray[i-1] + " " + infoArray[i]);
+                String[] singleTime = infoArray[i].split(" ");
+                singleTimeList.add(singleTime[1] + " " + singleTime[2]);
             }
         }
 
@@ -82,15 +87,19 @@ public class C2Solution {
                         repeatedLocList.add(sortedLocList.get(i));
                     }                    
                 }
-                locationIndices.add(i + 1);
-                
-            
-             
-             
+                locationIndices.add(i + 1);            
+                                      
         } 
        
-
-        for (int i = 0; i < sortedTimeList.size(); i++) {
+        int[] order = new int[timeList.size()];
+        int n = 0;
+        for (int i = 0; i < locationIndices.size() - 1; i++) {
+            
+            for (int m = locationIndices.get(i); m < locationIndices.get(i + 1); m++) {
+                String[] stringInSortedTL = sortedTimeList.get(m).split(" ");
+                String[] stringInSingleTL = sortedTimeList.get(m).split(" ");
+                order[n++] = singleTimeList.indexOf(stringInSortedTL[3] + " " + stringInSortedTL[4]);
+            }
                                   
         }
                 
@@ -100,11 +109,11 @@ public class C2Solution {
 
         for (int i = 0; i < imageList.size(); i++) {            
             //System.out.println(combinedList.get(i)); 
-            System.out.println(sortedTimeList.get(i));           
+            System.out.println(timeList.get(i));           
         }
-        for (int i = 0; i < locationIndices.size(); i++) {            
+        for (int i = 0; i < singleTimeList.size(); i++) {            
             //System.out.println(combinedList.get(i)); 
-            System.out.println(locationIndices.get(i));           
+            System.out.println(order[i]);           
         }
 
 

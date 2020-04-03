@@ -111,11 +111,11 @@ public class C2Solution {
             int o = 0;
             String[] stringInTL = timeList.get(i).split(" ");
             for(int p = 0; p < sortedTimeList.size(); p++){
-                while(p != sortedTimeList.size() - 1 && sortedTimeList.get(p).contains(stringInTL[1])){
+                while(p <= sortedTimeList.size() - 1 && sortedTimeList.get(p).contains(stringInTL[1])){
                     if(sortedTimeList.get(p).contains(stringInTL[3] + " " + stringInTL[4])){
                         String newEntry = combinedList.get(i).trim();
-                        newEntry.replaceAll("\\s", Integer.toString(o+1));
-                        combinedList.get(i).replaceAll("\\s", Integer.toString(o+1));
+                        String finalEntry = newEntry.replaceAll("\\s", Integer.toString(o+1));
+                        combinedList.set(i, finalEntry);
                         
                     }
                     o++;
@@ -134,8 +134,7 @@ public class C2Solution {
 
         for (int i = 0; i < imageList.size(); i++) {            
             System.out.println(combinedList.get(i));
-            
-            //System.out.println(timeList.get(i));           
+                       
         }
         for (int i = 0; i < locationIndices.size(); i++) {            
             //System.out.println(combinedList.get(i)); 

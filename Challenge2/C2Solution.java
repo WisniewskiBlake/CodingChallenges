@@ -13,28 +13,22 @@ public class C2Solution {
 
         String info = "photo.jpg, Warsaw, 2013-09-05 14:08:15\njohn.png, London, 2015-06-20 15:13:22\nmyFriends.png, Warsaw, 2013-09-05 14:07:13\nEiffel.jpg, Paris, 2015-07-23 08:03:02\npisatower.jpg, Paris, 2015-07-22 23:59:59\nBOB.jpg, London, 2015-08-05 00:02:03\nnotredame.png, Paris, 2015-09-01 12:00:00\nme.jpg, Warsaw, 2013-09-06 15:40:22\na.png, Warsaw, 2016-02-13 13:33:50\nb.jpg, Warsaw, 2016-01-02 15:12:22\nc.jpg, Warsaw, 2016-01-02 14:34:30\nd.jpg, Warsaw, 2016-01-02 15:15:01\ne.png, Warsaw, 2016-01-02 09:49:09\nf.png, Warsaw, 2016-01-02 10:55:32\ng.jpg, Warsaw, 2016-02-29 22:13:11";
 
+        //preparing input to be divided into separate lists for searching/sorting
         String newInfo = info.replaceAll("\n", ",");
         String[] infoArray = newInfo.split(",");
-
-        String[] infoRows = info.split("\n");
-        // String[] locationArray = new String[infoArray.length / 3];        
-        // String[] timeArray = new String[infoArray.length / 3];
-        int j = 0;
-        // int k = 0;
-        // int l = 0;
+        
 
         LinkedList<String> imageList = new LinkedList<>();
         LinkedList<String> locationList = new LinkedList<>();
         LinkedList<String> sortedLocList = new LinkedList<>();
         LinkedList<String> timeList = new LinkedList<>();
         LinkedList<String> sortedTimeList = new LinkedList<>();
-        LinkedList<String> singleTimeList = new LinkedList<>();
-        LinkedList<Integer> locationIndices = new LinkedList<>();
+        LinkedList<String> singleTimeList = new LinkedList<>();        
         LinkedList<String> combinedList = new LinkedList<>();
 
         
 
-        
+        //preparing input for searching and sorting by dividing into separate lists
         for (int i = 0; i < infoArray.length; i++) {                        
             if(i == 0){
                 String[] formatArray = infoArray[i].split("\\.");
@@ -71,42 +65,26 @@ public class C2Solution {
         sortList(sortedTimeList);
         sortList(sortedLocList);
 
-        
-        LinkedList<String> repeatedLocList = new LinkedList<>();
-        locationIndices.add(0);
+        //determining if a location is repeated 10 or more times
+        LinkedList<String> repeatedLocList = new LinkedList<>();        
         for (int i = 0; i < locationList.size() - 1; i++){
             int over10Repeats = 0; 
-            // Move the index ahead while 
-            // there are duplicates
-             
-                while (i < locationList.size() - 1 && sortedLocList.get(i).equals(sortedLocList.get(i+1))) 
-                { 
+            // Move the index ahead while there are duplicates                         
+                while (i < locationList.size() - 1 && sortedLocList.get(i).equals(sortedLocList.get(i+1))) { 
                     i++;
                     over10Repeats++;
                     if(over10Repeats >= 10){
                         repeatedLocList.add(sortedLocList.get(i));
                     }                    
-                }
-                locationIndices.add(i + 1);            
-                                      
+                }                     
         } 
        
-        LinkedList<Integer> order = new LinkedList<>();
-        // int n = 0;
-        // for (int i = 0; i < locationIndices.size() - 1; i++) {
-            
-        //     for (int m = locationIndices.get(i); m < locationIndices.get(i + 1); m++) {
-        //         String[] stringInSortedTL = sortedTimeList.get(m).split(" ");
-        //         String[] stringInSingleTL = sortedTimeList.get(m).split(" ");
-        //         order[n++] = singleTimeList.indexOf(stringInSortedTL[3] + " " + stringInSortedTL[4]);
-        //     }
-                                  
-        // }
-
+        //preparing final output by adding file type to location
         for (int i = 0; i < imageList.size(); i++) {
             combinedList.add(locationList.get(i) + " " + imageList.get(i));                        
         }
 
+        //inserts correct order into final output by comparing sorted list index to original list index
         for(int i = 0; i < timeList.size(); i++){
             int o = 0;
             String[] stringInTL = timeList.get(i).split(" ");
@@ -115,41 +93,19 @@ public class C2Solution {
                     if(sortedTimeList.get(p).contains(stringInTL[3] + " " + stringInTL[4])){
                         String newEntry = combinedList.get(i).trim();
                         String finalEntry = newEntry.replaceAll("\\s", Integer.toString(o+1));
-                        combinedList.set(i, finalEntry);
-                        
+                        combinedList.set(i, finalEntry);                        
                     }
                     o++;
                     p++;
-
                 }
             }
-
         }
 
-
-
-
-                
-        
-
+        //printing final list
         for (int i = 0; i < imageList.size(); i++) {            
-            System.out.println(combinedList.get(i));
-                       
+            System.out.println(combinedList.get(i));                    
         }
-        for (int i = 0; i < locationIndices.size(); i++) {            
-            //System.out.println(combinedList.get(i)); 
-            //System.out.println(locationIndices.get(i));           
-        }
-
-
-
-
-
-
-
-
-
-
+        
     }
 
     static public LinkedList<String> sortList(LinkedList<String> list){

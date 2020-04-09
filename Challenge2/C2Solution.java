@@ -3,6 +3,7 @@ package CodingChallenges.Challenge2;
 import java.text.Collator;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
@@ -65,19 +66,18 @@ public class C2Solution {
         sortList(sortedTimeList);
         sortList(sortedLocList);
 
-        //determining if a location is repeated 10 or more times
-        LinkedList<String> repeatedLocList = new LinkedList<>();        
+        //determining if a location is repeated 10 or more times    
+        HashMap<Integer, String> repeatedMap = new HashMap<Integer, String>();                
         for (int i = 0; i < locationList.size() - 1; i++){
             int over10Repeats = 0; 
             // Move the index ahead while there are duplicates                         
-                while (i < locationList.size() - 1 && sortedLocList.get(i).equals(sortedLocList.get(i+1))) { 
-                    i++;
-                    over10Repeats++;
-                    if(over10Repeats >= 10){
-                        //do something else than add it to a list
-                        repeatedLocList.add(sortedLocList.get(i).trim());
-                    }                    
-                }                     
+            while (i < locationList.size() - 1 && sortedLocList.get(i).equals(sortedLocList.get(i+1))) { 
+                i++;
+                over10Repeats++;
+                if(over10Repeats >= 9){
+                    repeatedMap.put(i, sortedLocList.get(i).trim());
+                }                    
+            }                     
         } 
        
         //preparing final output by adding file type to location
@@ -86,22 +86,27 @@ public class C2Solution {
         }
 
         //inserts correct order into final output by comparing sorted list index to original list index
-        for(int i = 0; i < timeList.size(); i++){
-            int o = 0;
-            String[] stringInTL = timeList.get(i).split(" ");
-            for(int p = 0; p < sortedTimeList.size(); p++){
-                while(p <= sortedTimeList.size() - 1 && sortedTimeList.get(p).contains(stringInTL[1])){
-                    if(sortedTimeList.get(p).contains(stringInTL[3] + " " + stringInTL[4])){
-                        String newEntry = combinedList.get(i).trim();
-                        String[] repeatedLoc = newEntry.split(" ");
-                        String finalEntry = newEntry.replaceAll("\\s", Integer.toString(o+1));
-                        combinedList.set(i, finalEntry);                        
-                    }
-                    o++;
-                    p++;
-                }
-            }
-        }
+        // for(int i = 0; i < timeList.size(); i++){
+        //     int o = 0;
+        //     String[] stringInTL = timeList.get(i).split(" ");
+        //     for(int p = 0; p < sortedTimeList.size(); p++){
+        //         while(p <= sortedTimeList.size() - 1 && sortedTimeList.get(p).contains(stringInTL[1])){
+        //             if(sortedTimeList.get(p).contains(stringInTL[3] + " " + stringInTL[4])){
+        //                 String newEntry = combinedList.get(i).trim();
+        //                 String[] repeatedCheck = newEntry.split(" ");
+        //                 if(repeatedMap.containsValue(repeatedCheck[0]) && (o+1) < 10){
+        //                     String finalEntry = newEntry.replaceAll("\\s", "0" + Integer.toString(o+1) + ".");
+        //                     combinedList.set(i, finalEntry);
+        //                 }else{
+        //                     String finalEntry = newEntry.replaceAll("\\s", Integer.toString(o+1) + ".");
+        //                     combinedList.set(i, finalEntry);
+        //                 }                                                
+        //             }
+        //             o++;
+        //             p++;
+        //         }
+        //     }
+        // }
 
         //printing final list
         for (int i = 0; i < imageList.size(); i++) {            

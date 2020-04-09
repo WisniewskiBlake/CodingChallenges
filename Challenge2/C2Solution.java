@@ -16,8 +16,7 @@ public class C2Solution {
 
         //preparing input to be divided into separate lists for searching/sorting
         String newInfo = info.replaceAll("\n", ",");
-        String[] infoArray = newInfo.split(",");
-        
+        String[] infoArray = newInfo.split(",");        
 
         LinkedList<String> imageList = new LinkedList<>();
         LinkedList<String> locationList = new LinkedList<>();
@@ -25,9 +24,7 @@ public class C2Solution {
         LinkedList<String> timeList = new LinkedList<>();
         LinkedList<String> sortedTimeList = new LinkedList<>();
         LinkedList<String> singleTimeList = new LinkedList<>();        
-        LinkedList<String> combinedList = new LinkedList<>();
-
-        
+        LinkedList<String> combinedList = new LinkedList<>();        
 
         //preparing input for searching and sorting by dividing into separate lists
         for (int i = 0; i < infoArray.length; i++) {                        
@@ -60,7 +57,6 @@ public class C2Solution {
                 singleTimeList.add(singleTime[1] + " " + singleTime[2]);
             }
         }
-
         
         //sort list of times and locations
         sortList(sortedTimeList);
@@ -86,27 +82,27 @@ public class C2Solution {
         }
 
         //inserts correct order into final output by comparing sorted list index to original list index
-        // for(int i = 0; i < timeList.size(); i++){
-        //     int o = 0;
-        //     String[] stringInTL = timeList.get(i).split(" ");
-        //     for(int p = 0; p < sortedTimeList.size(); p++){
-        //         while(p <= sortedTimeList.size() - 1 && sortedTimeList.get(p).contains(stringInTL[1])){
-        //             if(sortedTimeList.get(p).contains(stringInTL[3] + " " + stringInTL[4])){
-        //                 String newEntry = combinedList.get(i).trim();
-        //                 String[] repeatedCheck = newEntry.split(" ");
-        //                 if(repeatedMap.containsValue(repeatedCheck[0]) && (o+1) < 10){
-        //                     String finalEntry = newEntry.replaceAll("\\s", "0" + Integer.toString(o+1) + ".");
-        //                     combinedList.set(i, finalEntry);
-        //                 }else{
-        //                     String finalEntry = newEntry.replaceAll("\\s", Integer.toString(o+1) + ".");
-        //                     combinedList.set(i, finalEntry);
-        //                 }                                                
-        //             }
-        //             o++;
-        //             p++;
-        //         }
-        //     }
-        // }
+        for(int i = 0; i < timeList.size(); i++){
+            int o = 0;
+            String[] stringInTL = timeList.get(i).split(" ");
+            for(int p = 0; p < sortedTimeList.size(); p++){
+                while(p <= sortedTimeList.size() - 1 && sortedTimeList.get(p).contains(stringInTL[1])){
+                    if(sortedTimeList.get(p).contains(stringInTL[3] + " " + stringInTL[4])){
+                        String newEntry = combinedList.get(i).trim();
+                        String[] repeatedCheck = newEntry.split(" ");
+                        if(repeatedMap.containsValue(repeatedCheck[0]) && (o+1) < 10){
+                            String finalEntry = newEntry.replaceAll("\\s", "0" + Integer.toString(o+1) + ".");
+                            combinedList.set(i, finalEntry);
+                        }else{
+                            String finalEntry = newEntry.replaceAll("\\s", Integer.toString(o+1) + ".");
+                            combinedList.set(i, finalEntry);
+                        }                                                
+                    }
+                    o++;
+                    p++;
+                }
+            }
+        }
 
         //printing final list
         for (int i = 0; i < imageList.size(); i++) {            

@@ -1,4 +1,4 @@
-package CodingChallenges.Challenge1;
+package Challenge1;
 
 import java.util.HashMap;
 import java.util.Map;

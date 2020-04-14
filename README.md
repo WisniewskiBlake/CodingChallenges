@@ -9,3 +9,6 @@ Write a function: function solution (S) { // your code } that, given a string re
 
 Challenge 3 (Secretary Problem): <br />
 Find the k-th smallest/largest item of a data stream. We do not know the data in advance. We want to hire the best secretary out of N applicants. Applicants are interviewed one by one and after rejecting, the applicant can not be recalled. We can rank the applicant among all applicants interviewed so far, but we are unaware of the quality of unseen applicants. We need to maximize the probability of selecting the best applicant.
+
+Challenge 4 (N-Queens Problem): <br />
+Given N chess queens on an NxN chessboard, place the queens so that no two queens threaten each other (they can't attack each other). Keep in mind that queens can move on the chessboard vertically, horizontally, and diagonally. 

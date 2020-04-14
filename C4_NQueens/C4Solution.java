@@ -59,5 +59,19 @@ public class C4Solution {
 		}
 		
 		return true;
+    }
+    
+    private void printQueens() {		
+		for(int i=0;i<chessTable.length;i++) {
+			for(int j=0;j<chessTable.length;j++) {
+				if( chessTable[i][j] == 1 ) {
+					System.out.print(" * ");
+				} else {
+					System.out.print(" - ");
+				}
+			}
+			
+			System.out.println();
+		}
 	}
 }

@@ -8,6 +8,15 @@ public class C4Solution {
 		this.chessTable = new int[numOfQueens][numOfQueens];
 		this.numOfQueens = numOfQueens;
     }
+
+    public void solve() {
+		
+		if(setQueens(0) ) {
+			printQueens();
+		} else {
+			System.out.println("There is no solution...");
+		}
+	}
     
     private boolean setQueens(int colIndex) {
 

@@ -12,3 +12,6 @@ Find the k-th smallest/largest item of a data stream. We do not know the data in
 
 Challenge 4 (N-Queens Problem): <br />
 Given N chess queens on an NxN chessboard, place the queens so that no two queens threaten each other (they can't attack each other). Keep in mind that queens can move on the chessboard vertically, horizontally, and diagonally. 
+
+Challenge 5 (Subset Sum Problem): <br />
+

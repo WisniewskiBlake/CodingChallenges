@@ -14,4 +14,4 @@ Challenge 4 (N-Queens Problem): <br />
 Given N chess queens on an NxN chessboard, place the queens so that no two queens threaten each other (they can't attack each other). Keep in mind that queens can move on the chessboard vertically, horizontally, and diagonally. 
 
 Challenge 5 (Subset Sum Problem): <br />
-
+Given an S set of integers, is there a non-empty subset whose sum s is zero or a given integer?

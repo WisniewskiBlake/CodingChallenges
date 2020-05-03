@@ -1,4 +1,4 @@
-package Challenge1;
+package SmallestPositiveInt;
 
 import java.util.HashMap;
 import java.util.Map;

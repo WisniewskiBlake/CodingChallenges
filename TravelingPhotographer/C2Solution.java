@@ -1,4 +1,4 @@
-package Challenge2;
+package TravelingPhotographer;
 
 import java.text.Collator;
 import java.util.Collections;

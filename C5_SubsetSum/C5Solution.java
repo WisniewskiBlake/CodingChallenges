@@ -34,23 +34,8 @@ public class C5Solution {
                             }
                         }				
                     }
-                }
-            }
-            public void hasSolution(){
-		
-		for(int i=0;i<this.numbers.length+1;i++){
-			for(int j=0;j<this.sum+1;j++){
-				System.out.print(dpTable[i][j]+" ");
-			}
-			
-			System.out.println();
-		}
-		
-		if( this.dpTable[numbers.length][sum] ){
-			System.out.println("There is a solution for the problem...");
-		}else{
-			System.out.println("No feasible solution for the problem...");
-		}	
+                }                    
+					
     }
     public void hasSolution(){
 		

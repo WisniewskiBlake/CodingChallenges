@@ -2,10 +2,10 @@ package C6_Palindrome;
 
 public class Palindrome {
     public static void main(String[] args) {
-        System.out.println(palindrome3("Hello"));
+        System.out.println(palindromeSimplest("Hello"));
     }
 
-    public static boolean palindrome1(String s) {
+    public static boolean palindromeBruteForce(String s) {
         String reversed = "";
         int length = s.length();
 
@@ -19,7 +19,7 @@ public class Palindrome {
         return false;
     }
 
-    public static boolean palindrome2(String s) {
+    public static boolean palindromeFastest(String s) {
         int i = 0;
         int j = s.length()-1;
         int k = (i+j)/2;
@@ -35,7 +35,7 @@ public class Palindrome {
         return true;
     }
 
-    public static boolean palindrome3(String s) {
+    public static boolean palindromeSimplest(String s) {
         StringBuilder sb = new StringBuilder(s);
         return s.equals(sb.reverse().toString());
     }

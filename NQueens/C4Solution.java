@@ -1,4 +1,4 @@
-package C4_NQueens;
+package NQueens;
 
 public class C4Solution {
     private int[][] chessTable;

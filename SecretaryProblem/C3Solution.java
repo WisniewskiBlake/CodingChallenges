@@ -1,4 +1,4 @@
-package C3_SecretaryProblem;
+package SecretaryProblem;
 
 import java.util.Random;
 

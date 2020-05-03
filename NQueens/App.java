@@ -1,4 +1,4 @@
-package C4_NQueens;
+package NQueens;
 
 public class App {
     public static void main(String[] args) {		

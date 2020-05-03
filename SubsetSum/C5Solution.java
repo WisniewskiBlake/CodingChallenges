@@ -1,4 +1,4 @@
-package C5_SubsetSum;
+package SubsetSum;
 
 public class C5Solution {
     private boolean[][] dpTable;

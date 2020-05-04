@@ -2,7 +2,7 @@ package TwoEggs;
 
 public class TwoEggs {
     public static void main(String[] args) {
-        System.out.println(5/2);
+        System.out.println(solve(2,10));
     }
 
     //solve with dynamic programming, where n is number of eggs and m is
@@ -18,14 +18,20 @@ public class TwoEggs {
             while(n >= 1) {
                 if(n == 1) {
 
-                } else if(drop(mid) && mid != (m-1)) {
+                } else if(drop(mid)) {
                     steps++;
-                    lastMid = mid;
-                    mid = (m + mid + 1) / 2;
+                    if(mid != (m-1)) {
+                        return steps;
+                    } else {
+                        lastMid = mid;
+                        mid = (m + mid + 1) / 2;
+                        break;
+                    }
+
 
                 } else if(!drop(mid) && n == 1) {
 
-                } else if(!drop(mid) && n == 1) {
+                } else if(!drop(mid) && n > 1) {
 
                 }
 

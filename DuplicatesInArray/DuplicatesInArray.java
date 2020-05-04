@@ -13,12 +13,16 @@ public class DuplicatesInArray {
         HashMap<Integer,Integer> map = new HashMap<>();
 
         for(int i = 0; i < array.length; i++) {
-            map.put(array[i], i);
 
             if(map.containsKey(array[i])) {
                 System.out.println(array[i]);
+            } else {
+                map.put(array[i], i);
             }
+
         }
+
+
 
     }
 

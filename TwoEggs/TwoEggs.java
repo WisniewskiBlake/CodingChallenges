@@ -2,7 +2,7 @@ package TwoEggs;
 
 public class TwoEggs {
     public static void main(String[] args) {
-        int n = 2, k = 10;
+        int n = 2, k = 100;
         System.out.println("Minimum number of trials in worst case with "+n+"  eggs and "+k+
                 " floors is "+eggDrop(n, k));
     }

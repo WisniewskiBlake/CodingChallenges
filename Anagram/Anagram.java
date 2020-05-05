@@ -12,14 +12,22 @@ public class Anagram {
     }
 
     public static String solve(char[] word1, char[] word2) {
-        HashMap<Integer,Integer> map = new HashMap<>();
+        HashMap<Character,Integer> map = new HashMap<>();
 
         if(word1.length != word2.length) {
             return "Not an anagram";
         }else {
+            for(int i = 0; i < word2.length; i++) {
+                map.put(word2[i], i);
+            }
+            for(int i = 0; i < word1.length; i++) {
+                if(!map.containsKey(word1[i])) {
+                    return "Not an anagram";
+                }
 
+            }
         }
-        return "Not an anagram";
+        return "Words an anagram";
     }
 
 }

@@ -33,6 +33,8 @@ public class Fibonacci {
 
         int calculatedNumber = memoizeTable.get(n-1) + memoizeTable.get(n-2);
 
+        return calculatedNumber;
+
     }
 
 }

@@ -9,8 +9,7 @@ public class Fibonacci {
         if(n == 1) {
             return 1;
         }
-
-
+        return bruteForceFibonacci(n-1) + bruteForceFibonacci(n-2);
     }
 
 }

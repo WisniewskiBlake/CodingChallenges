@@ -1,5 +1,6 @@
 package Fibonacci;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Fibonacci {
@@ -18,8 +19,14 @@ public class Fibonacci {
         return bruteForceFibonacci(n-1) + bruteForceFibonacci(n-2);
     }
 
-    public static int memoizeFibonacci() {
-        Map<Integer,Integer> memoizeTable;
+    public static int memoizeFibonacci(int n) {
+        Map<Integer,Integer> memoizeTable = new HashMap<>();
+        memoizeTable.put(0, 0);
+        memoizeTable.put(1, 1);
+
+        if(memoizeTable.containsKey(n)) {
+            return memoizeTable.get(n);
+        }
     }
 
 }

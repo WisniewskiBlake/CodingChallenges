@@ -27,6 +27,10 @@ public class Fibonacci {
         if(memoizeTable.containsKey(n)) {
             return memoizeTable.get(n);
         }
+
+        memoizeTable.put(n-1, memoizeFibonacci(n-1));
+        memoizeTable.put(n-2, memoizeFibonacci(n-2));
+
     }
 
 }

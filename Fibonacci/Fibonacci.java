@@ -31,6 +31,8 @@ public class Fibonacci {
         memoizeTable.put(n-1, memoizeFibonacci(n-1));
         memoizeTable.put(n-2, memoizeFibonacci(n-2));
 
+        int calculatedNumber = memoizeTable.get(n-1) + memoizeTable.get(n-2);
+
     }
 
 }

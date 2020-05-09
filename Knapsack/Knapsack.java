@@ -5,7 +5,8 @@ public class Knapsack {
 
     }
 
-    public static void solve(int numOfItems, int capacity) {
+    public static void solve(int numOfItems, int capacity, int[] weights,
+                             int[] values) {
 
     }
 }

@@ -65,6 +65,7 @@ public class Fibonacci {
             a = b;
             b = c;
         }
+        return a + b;
     }
 
 }

@@ -37,4 +37,8 @@ public class Fibonacci {
 
     }
 
+    public static int withoutMapFibonacci(int n) {
+
+    }
+
 }

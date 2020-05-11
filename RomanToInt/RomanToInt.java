@@ -9,7 +9,7 @@ import java.util.List;
 
 public class RomanToInt {
     public static void main(String[] args) {
-        System.out.println(romanToInt("MMMCMXCIX"));
+        System.out.println(romanToInt("X"));
     }
 
     public static int romanToInt(String s) {
@@ -25,6 +25,10 @@ public class RomanToInt {
         map.put('X', 10);
         map.put('V', 5);
         map.put('I', 1);
+        //check if input is single char
+        if(s.length() == 1) {
+            return map.get(s.charAt(0));
+        }
         //need to check if i-1 is higher, lower, or equal
         for (int i = s.length()-1; i > -1 ; i--) {
             if(i == 0) {

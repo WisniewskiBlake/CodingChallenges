@@ -2,27 +2,38 @@ package ReverseInt;
 
 public class ReverseInt {
     public static void main(String[] args) {
-        System.out.println(reverseNaive(123));
+        System.out.println(reverseClean(54));
     }
 
-    public static int reverseNaive(int x) {
-        //convert to string
-        String y = Integer.toString(x);
-        int p = y.length();
-        int result = 0;
-        
-        //for loop through y and use .charAt(i) to access element
-        for (int i = p; i > 0; i--) {
-            result += Integer.parseInt(String.valueOf(y.charAt(i)));
-        }
-        //create partition from middle
+    public static int reverseClean(int x) {
+        long reverse = 0;
+        int digit;
 
-        if(y.length() % 2 == 0) {
-
+        if(x < 0) {
+            x = x * -1;
+            while(x > 0) {
+                digit = x % 10;
+                reverse = reverse * 10 + digit;
+                if(reverse > Integer.MAX_VALUE) {
+                    return 0;
+                }
+                x = x / 10;
+            }
+            return (int)(reverse * -1);
         }else {
-            
-        }
+            while(x > 0) {
+                digit = x % 10;
 
-        return x;
+                reverse = (reverse * 10);
+
+                if(reverse > Integer.MAX_VALUE) {
+                    return 0;
+                }
+
+                reverse += digit;
+                x = x / 10;
+            }
+            return (int)reverse;
+        }
     }
 }

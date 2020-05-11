@@ -5,12 +5,16 @@ import java.util.HashMap;
 public class SubsetSum {
 
     public static void main(String[] args) {
-        int[] set = {3, 34, 4, 12, 5, 2};
-        int sum = 9;
-        System.out.println(solve(set, sum));
+        int[] set = {3, 2, 5, 3};
+        int sum = 6;
+        int[] solved = solve(set, sum);
+        for(int i = 0; i < 2; i++) {
+            System.out.println(solved[i]);
+        }
+
     }
 
-    public static String solve(int[] set, int sum) {
+    public static int[] solve(int[] set, int sum) {
         HashMap<Integer,Integer> map = new HashMap<>();
         int[] solutionArray = new int[2];
 
@@ -18,13 +22,16 @@ public class SubsetSum {
             int num1 = set[i];
             int num2 = sum - set[i];
 
+            if(map.containsKey(num2)) {
+                solutionArray[0] = map.get(num2);
+                solutionArray[1] = i;
+                return solutionArray;
+            }
+
             map.put(num1, i);
 
-            if(map.containsKey(num2)) {
-                return "Numbers are " + num1 + " and " + num2;
-            }
         }
-        return "No Solution";
+        return solutionArray;
     }
 
 }

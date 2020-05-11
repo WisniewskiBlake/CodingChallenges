@@ -12,6 +12,7 @@ public class SubsetSum {
 
     public static String solve(int[] set, int sum) {
         HashMap<Integer,Integer> map = new HashMap<>();
+        int[] solutionArray = new int[2];
 
         for(int i = 0; i < set.length; i++) {
             int num1 = set[i];

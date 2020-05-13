@@ -47,4 +47,8 @@ public class RomanToInt {
 
         return number;
     }
+
+//    public static int checkNum(char c) {
+//        switch:
+//    }
 }

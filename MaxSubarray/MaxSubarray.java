@@ -10,10 +10,12 @@ package MaxSubarray;
 
 public class MaxSubarray {
     public static void main(String[] args) {
+        int[] nums = {1, -2, 3, 4, -5, 8};
 
+        System.out.println(solve(nums));
     }
 
-    public static void solve(int[] array) {
+    public static int solve(int[] array) {
 
     }
 }

@@ -18,6 +18,15 @@ package BuyAndSellStock;
 //        Output: 0
 //        Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
+//How to solve:
+//we want to buy on the lowest price each day, we cant buy on the last
+// element, and we need to buy before we sell.
+//
+//
+//
+//
+//
+
 public class BuyAndSellStock {
     public static void main(String[] args) {
         int[] inputArray = {7,1,5,3,6,4};

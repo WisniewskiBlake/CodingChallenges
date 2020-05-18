@@ -20,7 +20,8 @@ package BuyAndSellStock;
 
 public class BuyAndSellStock {
     public static void main(String[] args) {
-
+        int[] inputArray = {7,1,5,3,6,4};
+        System.out.println(solve(inputArray));
     }
 
     public static int solve(int[] prices) {

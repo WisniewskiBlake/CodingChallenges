@@ -20,6 +20,8 @@ public class MaxSubarray {
         int max_current = nums[0];
 
         for(int i=1; i<nums.length; i++) {
+            //max current will take on the value of the greatest number between
+            //
             max_current = Math.max(nums[i], max_current+nums[i]);
 
             if(max_current>max_global) {

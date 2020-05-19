@@ -19,15 +19,9 @@ package BuyAndSellStock;
 //        Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 //How to solve:
-//we want to buy on the lowest price each day, we cant buy on the last
-// element, and we need to buy before we sell.
-//
-//We want to keep track a running minimum then the maximum value after the
-// minimum
-//
-//We can identify the first minimum by finding the first increasing substring
-//We can identify the corresponding maximum to the final minmum by finding
-// the largest value after the final minimum
+//identify first minimum value then save its index as well as the difference
+// of array[i+1] - array[i], put array[i+1] as max. identify next minimum,
+// store index and difference in map. update max
 
 import java.util.HashMap;
 
@@ -40,19 +34,26 @@ public class BuyAndSellStock {
     }
 
     public static int solve(int[] prices) {
-        int possibleMinimum = Integer.MAX_VALUE;
+        int minimum = Integer.MAX_VALUE;
         int finalMinimum = Integer.MAX_VALUE;
-        int finalMaximum = Integer.MAX_VALUE;
+        int currentMax = Integer.MAX_VALUE;
+        int finalMax = Integer.MIN_VALUE;
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for (int i = 0; i < prices.length-1; i++) {
+
+            //check for minimums
             if(prices[i] < prices[i+1]) {
-                possibleMinimum = prices[i];
+                map.put(prices[i+1], prices[i+1] - prices[i]);
+                currentMax = prices[i+1];
+                if(currentMax > finalMax) {
+
+                    finalMax = currentMax;
+                }
+
+
             }
-            if(possibleMinimum < finalMinimum) {
-                finalMinimum = possibleMinimum;
-                map.put(finalMinimum,i);
-            }
+
         }
         if(!map.isEmpty()) {
             for (int i = map.get(finalMinimum); i < prices.length - 1; i++) {

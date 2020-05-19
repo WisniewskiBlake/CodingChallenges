@@ -19,11 +19,17 @@ package BuyAndSellStock;
 //        Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 //How to solve:
-//identify first minimum value then save its index as well as the difference
-// of array[i+1] - array[i], put array[i+1] as max. identify next minimum,
-// store index and difference in map. update max
+//identify first minimum value, add it to the map, map.put(minimum, maximum),
+// then
+// keep going
+// through array
+// keeping track of max. If larger max is found, map.replace(minimum,
+// newMaximum). keep going until a smaller minimum is found. once a smaller minimum isfound then add it to the hashmap with the next maximum value found
+//
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import static java.lang.Integer.MAX_VALUE;
 
@@ -34,22 +40,25 @@ public class BuyAndSellStock {
     }
 
     public static int solve(int[] prices) {
-        int minimum = Integer.MAX_VALUE;
+        int currentMin = Integer.MAX_VALUE;
         int finalMinimum = Integer.MAX_VALUE;
         int currentMax = Integer.MAX_VALUE;
         int finalMax = Integer.MIN_VALUE;
+        int difference = 0;
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for (int i = 0; i < prices.length-1; i++) {
 
             //check for minimums
             if(prices[i] < prices[i+1]) {
-                map.put(prices[i+1], prices[i+1] - prices[i]);
                 currentMax = prices[i+1];
-                if(currentMax > finalMax) {
+                map.put(prices[i+1] - prices[i] ,prices[i+1]);
 
+                if(currentMax > finalMax) {
+                    map.replace(difference, );
                     finalMax = currentMax;
                 }
+                difference = prices[i+1] - prices[i];
 
 
             }
@@ -79,10 +88,34 @@ public class BuyAndSellStock {
 
 
 
-//    public static int solveWithMap(int[] prices) {
-//        int minimum = MAX_VALUE;
-//
-//    }
+    public static int solveWithMap(int[] prices) {
+        int possibleMinimum = Integer.MAX_VALUE;
+        int finalMinimum = Integer.MAX_VALUE;
+        int finalMaximum = Integer.MAX_VALUE;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map1 = new LinkedHashMap<>();
+
+        for (int i = 0; i < prices.length-1; i++) {
+            if(prices[i] < prices[i+1]) {
+                possibleMinimum = prices[i];
+                map1.put(possibleMinimum,i);
+            }
+
+        }
+        Map.Entry<Integer, Integer> entry = map.entrySet().iterator().next();
+        if(!map.isEmpty()) {
+            for (int i = entry.getValue(); i < prices.length - 1; i++) {
+                if(prices[i] < prices[i+1]) {
+                    finalMaximum = prices[i+1];
+                }
+
+            }
+            return finalMaximum - finalMinimum;
+        }
+
+        return 0;
+
+    }
 
 
 

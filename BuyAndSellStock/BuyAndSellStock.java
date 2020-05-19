@@ -91,26 +91,28 @@ public class BuyAndSellStock {
     public static int solveWithMap(int[] prices) {
         int possibleMinimum = Integer.MAX_VALUE;
         int finalMinimum = Integer.MAX_VALUE;
-        int finalMaximum = Integer.MAX_VALUE;
-        HashMap<Integer, Integer> map = new HashMap<>();
-        Map<Integer, Integer> map1 = new LinkedHashMap<>();
+        int maximum = Integer.MAX_VALUE;
+        Map<Integer, Integer> map = new LinkedHashMap<>();
 
         for (int i = 0; i < prices.length-1; i++) {
             if(prices[i] < prices[i+1]) {
                 possibleMinimum = prices[i];
-                map1.put(possibleMinimum,i);
+                map.put(i, prices[i+1] - prices[i]);
             }
 
         }
         Map.Entry<Integer, Integer> entry = map.entrySet().iterator().next();
         if(!map.isEmpty()) {
-            for (int i = entry.getValue(); i < prices.length - 1; i++) {
+            for (int i = entry.getKey(); i < prices.length - 1; i++) {
+                if(map.containsKey(prices[i])) {
+
+                }
                 if(prices[i] < prices[i+1]) {
-                    finalMaximum = prices[i+1];
+                    maximum = prices[i+1];
                 }
 
             }
-            return finalMaximum - finalMinimum;
+            return maximum - finalMinimum;
         }
 
         return 0;

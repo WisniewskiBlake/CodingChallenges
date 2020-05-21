@@ -32,50 +32,51 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static java.lang.Integer.MAX_VALUE;
+import static java.lang.Integer.MIN_VALUE;
 
 public class BuyAndSellStock {
     public static void main(String[] args) {
-        int[] inputArray = {3,2,6,5,0,3};
-        System.out.println(solve(inputArray));
+        int[] inputArray = {7,6,4,3,1};
+        System.out.println(solveWithMap(inputArray));
     }
 
-    public static int solve(int[] prices) {
-        int currentMin = Integer.MAX_VALUE;
-        int finalMinimum = Integer.MAX_VALUE;
-        int currentMax = Integer.MAX_VALUE;
-        int finalMax = Integer.MIN_VALUE;
-        int difference = 0;
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-        for (int i = 0; i < prices.length-1; i++) {
-
-            //check for minimums
-            if(prices[i] < prices[i+1]) {
-                currentMax = prices[i+1];
-                map.put(prices[i+1] - prices[i] ,prices[i+1]);
-
-                if(currentMax > finalMax) {
-                    map.replace(difference, );
-                    finalMax = currentMax;
-                }
-                difference = prices[i+1] - prices[i];
-
-
-            }
-
-        }
-        if(!map.isEmpty()) {
-            for (int i = map.get(finalMinimum); i < prices.length - 1; i++) {
-                if(prices[i] < prices[i+1]) {
-                    finalMaximum = prices[i+1];
-                }
-
-            }
-            return finalMaximum - finalMinimum;
-        }
-
-        return 0;
-    }
+//    public static int solve(int[] prices) {
+//        int currentMin = Integer.MAX_VALUE;
+//        int finalMinimum = Integer.MAX_VALUE;
+//        int currentMax = Integer.MAX_VALUE;
+//        int finalMax = Integer.MIN_VALUE;
+//        int difference = 0;
+//        HashMap<Integer, Integer> map = new HashMap<>();
+//
+//        for (int i = 0; i < prices.length-1; i++) {
+//
+//            //check for minimums
+//            if(prices[i] < prices[i+1]) {
+//                currentMax = prices[i+1];
+//                map.put(prices[i+1] - prices[i] ,prices[i+1]);
+//
+//                if(currentMax > finalMax) {
+//                    map.replace(difference, );
+//                    finalMax = currentMax;
+//                }
+//                difference = prices[i+1] - prices[i];
+//
+//
+//            }
+//
+//        }
+//        if(!map.isEmpty()) {
+//            for (int i = map.get(finalMinimum); i < prices.length - 1; i++) {
+//                if(prices[i] < prices[i+1]) {
+//                    finalMaximum = prices[i+1];
+//                }
+//
+//            }
+//            return finalMaximum - finalMinimum;
+//        }
+//
+//        return 0;
+//    }
 
 
 
@@ -89,34 +90,25 @@ public class BuyAndSellStock {
 
 
     public static int solveWithMap(int[] prices) {
-        int possibleMinimum = Integer.MAX_VALUE;
-        int finalMinimum = Integer.MAX_VALUE;
-        int maximum = Integer.MAX_VALUE;
-        Map<Integer, Integer> map = new LinkedHashMap<>();
+        int minPrice = MAX_VALUE;
+        int maxProfit = 0;
+        int maxPrice = 0;
 
-        for (int i = 0; i < prices.length-1; i++) {
-            if(prices[i] < prices[i+1]) {
-                possibleMinimum = prices[i];
-                map.put(i, prices[i+1] - prices[i]);
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < minPrice) {
+                minPrice = prices[i];
             }
-
-        }
-        Map.Entry<Integer, Integer> entry = map.entrySet().iterator().next();
-        if(!map.isEmpty()) {
-            for (int i = entry.getKey(); i < prices.length - 1; i++) {
-                if(map.containsKey(prices[i])) {
-
-                }
-                if(prices[i] < prices[i+1]) {
-                    maximum = prices[i+1];
-                }
-
+            if (prices[i] > maxPrice) {
+                maxPrice = prices[i];
             }
-            return maximum - finalMinimum;
+            if(prices[i] - minPrice >= maxProfit) {
+                maxProfit = prices[i] - minPrice;
+
+                //maybe put this before upper if
+                //either comment out max price or move this up
+            }
         }
-
-        return 0;
-
+        return maxProfit;
     }
 
 

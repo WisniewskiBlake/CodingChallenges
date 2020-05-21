@@ -18,76 +18,14 @@ package BuyAndSellStock;
 //        Output: 0
 //        Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
-//How to solve:
-//identify first minimum value, add it to the map, map.put(minimum, maximum),
-// then
-// keep going
-// through array
-// keeping track of max. If larger max is found, map.replace(minimum,
-// newMaximum). keep going until a smaller minimum is found. once a smaller minimum isfound then add it to the hashmap with the next maximum value found
-//
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import static java.lang.Integer.MAX_VALUE;
-import static java.lang.Integer.MIN_VALUE;
 
 public class BuyAndSellStock {
+
     public static void main(String[] args) {
         int[] inputArray = {7,6,4,3,1};
         System.out.println(solveWithMap(inputArray));
     }
-
-//    public static int solve(int[] prices) {
-//        int currentMin = Integer.MAX_VALUE;
-//        int finalMinimum = Integer.MAX_VALUE;
-//        int currentMax = Integer.MAX_VALUE;
-//        int finalMax = Integer.MIN_VALUE;
-//        int difference = 0;
-//        HashMap<Integer, Integer> map = new HashMap<>();
-//
-//        for (int i = 0; i < prices.length-1; i++) {
-//
-//            //check for minimums
-//            if(prices[i] < prices[i+1]) {
-//                currentMax = prices[i+1];
-//                map.put(prices[i+1] - prices[i] ,prices[i+1]);
-//
-//                if(currentMax > finalMax) {
-//                    map.replace(difference, );
-//                    finalMax = currentMax;
-//                }
-//                difference = prices[i+1] - prices[i];
-//
-//
-//            }
-//
-//        }
-//        if(!map.isEmpty()) {
-//            for (int i = map.get(finalMinimum); i < prices.length - 1; i++) {
-//                if(prices[i] < prices[i+1]) {
-//                    finalMaximum = prices[i+1];
-//                }
-//
-//            }
-//            return finalMaximum - finalMinimum;
-//        }
-//
-//        return 0;
-//    }
-
-
-
-
-
-
-
-
-
-
-
 
     public static int solveWithMap(int[] prices) {
         int minPrice = MAX_VALUE;
@@ -104,8 +42,6 @@ public class BuyAndSellStock {
             if(prices[i] - minPrice >= maxProfit) {
                 maxProfit = prices[i] - minPrice;
                 maxPrice = 0;
-                //maybe put this before upper if
-                //either comment out max price or move this up
             }
         }
         return maxProfit;

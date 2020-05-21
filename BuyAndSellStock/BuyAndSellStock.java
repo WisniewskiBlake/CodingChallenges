@@ -103,7 +103,7 @@ public class BuyAndSellStock {
             }
             if(prices[i] - minPrice >= maxProfit) {
                 maxProfit = prices[i] - minPrice;
-
+                maxPrice = 0;
                 //maybe put this before upper if
                 //either comment out max price or move this up
             }

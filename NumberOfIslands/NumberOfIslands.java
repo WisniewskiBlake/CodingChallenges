@@ -28,6 +28,13 @@ public class NumberOfIslands {
         System.out.println(numIslands(array));
     }
 
+    public static int numIslands(char[][] grid) {
+        int numberOfIslands = 0;
+
+
+        return numberOfIslands;
+    }
+
 
 
 

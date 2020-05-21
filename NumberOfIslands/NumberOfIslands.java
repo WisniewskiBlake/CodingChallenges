@@ -22,4 +22,48 @@ package NumberOfIslands;
 //        Output: 3
 
 public class NumberOfIslands {
+
+    public static void main(String[] args) {
+        char[][] array = {{'1','1','1'},{'0','1','0'},{'1','0','1'}};
+        System.out.println(numIslands(array));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

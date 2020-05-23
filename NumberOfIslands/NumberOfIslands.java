@@ -34,24 +34,24 @@ public class NumberOfIslands {
                   '0',
                   '0', '1',
                   '1'}};
-        char[][] array2 = {{'0', '1', '0'}, {'1', '1', '0'}, {'0', '1', '0'}};
+        char[][] array2 = {{'0', '1', '0', '0'}, {'1', '1', '0', '0'}, {'0', '0', '1', '0'}};
         System.out.println(numIslands3(array2));
     }
 
 
-    static void dfs(char[][] grid, int r, int c) {
-        int nr = grid.length;
-        int nc = grid[0].length;
+    static void dfs(char[][] grid, int row, int column) {
+        int columnLength = grid.length;
+        int rowLength = grid[0].length;
 
-        if (r < 0 || c < 0 || r >= nr || c >= nc || grid[r][c] == '0') {
+        if (row < 0 || column < 0 || row >= columnLength || column >= rowLength || grid[row][column] == '0') {
             return;
         }
 
-        grid[r][c] = '0';
-        dfs(grid, r - 1, c);
-        dfs(grid, r + 1, c);
-        dfs(grid, r, c - 1);
-        dfs(grid, r, c + 1);
+        grid[row][column] = '0';
+        dfs(grid, row - 1, column);
+        dfs(grid, row + 1, column);
+        dfs(grid, row, column - 1);
+        dfs(grid, row, column + 1);
     }
 
     public static int numIslands3(char[][] grid) {
@@ -59,17 +59,17 @@ public class NumberOfIslands {
             return 0;
         }
 
-        int nr = grid.length;
-        int nc = grid[0].length;
-        int num_islands = 0;
-        for (int r = 0; r < nr; ++r) {
-            for (int c = 0; c < nc; ++c) {
-                if (grid[r][c] == '1') {
-                    ++num_islands;
-                    dfs(grid, r, c);
+        int columnLength = grid.length;
+        int rowLength = grid[0].length;
+        int islands = 0;
+        for (int row = 0; row < columnLength; row++) {
+            for (int column = 0; column < rowLength; column++) {
+                if (grid[row][column] == '1') {
+                    islands++;
+                    dfs(grid, row, column);
                 }
             }
         }
-        return num_islands;
+        return islands;
     }
 }

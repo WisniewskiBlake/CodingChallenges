@@ -59,11 +59,11 @@ public class NumberOfIslands {
             return 0;
         }
 
-        int columnLength = grid.length;
-        int rowLength = grid[0].length;
+        int rowLength = grid.length;
+        int columnLength = grid[0].length;
         int islands = 0;
-        for (int row = 0; row < columnLength; row++) {
-            for (int column = 0; column < rowLength; column++) {
+        for (int row = 0; row < rowLength; row++) {
+            for (int column = 0; column < columnLength; column++) {
                 if (grid[row][column] == '1') {
                     islands++;
                     dfs(grid, row, column);

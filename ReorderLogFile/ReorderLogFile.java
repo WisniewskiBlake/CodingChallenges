@@ -29,6 +29,10 @@ public class ReorderLogFile {
 
     }
 
+    public String[] reorderLogFiles(String[] logs) {
+
+        return logs;
+    }
 
 
 

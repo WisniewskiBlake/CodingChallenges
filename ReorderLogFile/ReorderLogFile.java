@@ -41,6 +41,7 @@ public class ReorderLogFile {
                 int cmp = split1[1].compareTo(split2[1]);
                 if (cmp != 0) return cmp;
                 return split1[0].compareTo(split2[0]);
+
             }
             return isDigit1 ? (isDigit2 ? 0 : 1) : -1;
         });

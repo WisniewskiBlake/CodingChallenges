@@ -37,7 +37,10 @@ public class ReorderLogFile {
             String[] split2 = log2.split(" ", 2);
             boolean isDigit1 = Character.isDigit(split1[1].charAt(0));
             boolean isDigit2 = Character.isDigit(split2[1].charAt(0));
+            if (!isDigit1 && !isDigit2) {
 
+            }
+            return isDigit1 ? (isDigit2 ? 0 : 1) : -1;
         });
         return logs;
     }

@@ -18,13 +18,29 @@ import java.util.*;
 
 public class BSTRightSideView {
     public static void main(String[] args) {
-        System.out.println(rightSideView(1,2,3,null,5,null,4));
+        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode3 = new TreeNode(3);
+        TreeNode treeNode = new TreeNode();
+        TreeNode treeNode5 = new TreeNode(5);
+        TreeNode treeNode4 = new TreeNode(4);
+        TreeNode blankTree = new TreeNode();
+        treeNode1.left = treeNode2;
+        treeNode1.right = treeNode3;
+        treeNode2.right = treeNode4;
+        treeNode2.left = treeNode;
+        treeNode3.right = treeNode5;
+        treeNode3.left = blankTree;
+
+
+        System.out.println(rightSideView(treeNode1));
+
     }
 
     public static List<Integer> rightSideView(TreeNode root) {
         if (root == null) return Collections.emptyList();
 
-        Deque<TreeNode> queue = new ArrayDeque<>();
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.add(root);
 
         List<Integer> res = new ArrayList<>();
@@ -44,7 +60,6 @@ public class BSTRightSideView {
                 }
             }
         }
-
         return res;
     }
 

@@ -24,13 +24,17 @@ package ReorderLogFile;
 //        logs[i] is guaranteed to have an identifier, and a word after the identifier
 
 
+import java.util.Arrays;
+
 public class ReorderLogFile {
     public static void main(String[] args) {
 
     }
 
     public String[] reorderLogFiles(String[] logs) {
+        Arrays.sort(logs, (log1, log2) -> {
 
+        });
         return logs;
     }
 

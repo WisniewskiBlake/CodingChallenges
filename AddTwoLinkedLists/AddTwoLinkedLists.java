@@ -10,6 +10,26 @@ package AddTwoLinkedLists;
 //        Output: 7 -> 0 -> 8
 //        Explanation: 342 + 465 = 807.
 
+import java.util.LinkedList;
+
 public class AddTwoLinkedLists {
+    public static void main(String[] args) {
+        ListNode l1 = new ListNode();
+        l1.val = 2;
+        ListNode l11 = new ListNode();
+        l11.val = 4;
+        ListNode l12 = new ListNode();
+        l12.val = 3;
+        l1.next = l11;
+        l11.next = l12;
+
+        ListNode l2 = new ListNode();
+        l2.val = 5;
+        ListNode l21 = new ListNode();
+        l21.val = 6;
+        ListNode l22 = new ListNode();
+        l22.val = 4;
+        LinkedList<Integer> solutionList = solve(l1, l2);
+    }
 
 }

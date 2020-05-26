@@ -23,7 +23,7 @@ import static java.lang.Integer.MAX_VALUE;
 public class BuyAndSellStock {
 
     public static void main(String[] args) {
-        int[] inputArray = {7,6,4,3,1};
+        int[] inputArray = {7,2,6,8,1};
         System.out.println(solveWithMap(inputArray));
     }
 

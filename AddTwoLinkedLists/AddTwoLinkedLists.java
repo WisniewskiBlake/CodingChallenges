@@ -33,7 +33,12 @@ public class AddTwoLinkedLists {
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode returnedList = new ListNode();
+        int carryDigit = 0;
+        int l1head = l1.val;
+        int l2head = l2.val;
 
+        while()
     }
 
 }

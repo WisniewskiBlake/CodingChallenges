@@ -40,7 +40,14 @@ public class AddTwoLinkedLists {
         while(l1head != null || l2head != null) {
             int x = (l1head != null) ? l1head.val : 0;
             int y = (l2head != null) ? l2head.val : 0;
+            int sum = carryDigit + x + y;
+            carryDigit = sum / 10;
+            returnedList.next = new ListNode(sum % 10);
+            returnedList = returnedList.next;
+            l1head = l1head.next;
+            l2head = l2head.next;
         }
+
         return returnedList.next;
     }
 

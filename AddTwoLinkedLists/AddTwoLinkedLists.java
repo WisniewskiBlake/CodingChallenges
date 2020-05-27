@@ -29,7 +29,11 @@ public class AddTwoLinkedLists {
         l21.val = 6;
         ListNode l22 = new ListNode();
         l22.val = 4;
-        LinkedList<Integer> solutionList = solve(l1, l2);
+        ListNode solutionList = addTwoNumbers(l1, l2);
+    }
+
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+
     }
 
 }

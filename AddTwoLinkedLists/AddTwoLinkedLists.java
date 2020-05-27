@@ -14,31 +14,34 @@ import java.util.LinkedList;
 
 public class AddTwoLinkedLists {
     public static void main(String[] args) {
-        ListNode l1 = new ListNode();
-        l1.val = 2;
-        ListNode l11 = new ListNode();
-        l11.val = 4;
-        ListNode l12 = new ListNode();
-        l12.val = 3;
+        ListNode l1 = new ListNode(2);
+        ListNode l11 = new ListNode(4);
+        ListNode l12 = new ListNode(3);
+
         l1.next = l11;
         l11.next = l12;
 
-        ListNode l2 = new ListNode();
-        l2.val = 5;
-        ListNode l21 = new ListNode();
-        l21.val = 6;
-        ListNode l22 = new ListNode();
-        l22.val = 4;
+        ListNode l2 = new ListNode(5);
+        ListNode l21 = new ListNode(6);
+        ListNode l22 = new ListNode(4);
+
+        l2.next = l21;
+        l21.next = l22;
+
         ListNode solutionList = addTwoNumbers(l1, l2);
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode returnedList = new ListNode();
+        ListNode returnedList = new ListNode(0);
         int carryDigit = 0;
-        int l1head = l1.val;
-        int l2head = l2.val;
+        ListNode l1head = l1;
+        ListNode l2head = l2;
 
-        while()
+        while(l1head != null || l2head != null) {
+            int x = (l1head != null) ? l1head.val : 0;
+            int y = (l2head != null) ? l2head.val : 0;
+        }
+        return returnedList.next;
     }
 
 }

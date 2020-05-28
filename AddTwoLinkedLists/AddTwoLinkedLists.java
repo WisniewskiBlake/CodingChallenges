@@ -44,10 +44,12 @@ public class AddTwoLinkedLists {
             carryDigit = sum / 10;
             returnedList.next = new ListNode(sum % 10);
             returnedList = returnedList.next;
-            l1head = l1head.next;
-            l2head = l2head.next;
+            if(l1head != null) l1head = l1head.next;
+            if(l2head != null) l2head = l2head.next;
         }
-
+        if (carryDigit > 0) {
+            returnedList.next = new ListNode(carryDigit);
+        }
         return returnedList.next;
     }
 

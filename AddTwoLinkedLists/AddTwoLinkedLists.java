@@ -29,7 +29,7 @@ public class AddTwoLinkedLists {
         l21.next = l22;
 
         ListNode solutionList = addTwoNumbers(l1, l2);
-        while(solutionList.next != null) {
+        while(solutionList != null) {
             System.out.println(solutionList.val);
             solutionList = solutionList.next;
         }
@@ -40,14 +40,15 @@ public class AddTwoLinkedLists {
         int carryDigit = 0;
         ListNode l1head = l1;
         ListNode l2head = l2;
+        ListNode curr = returnedList;
 
         while(l1head != null || l2head != null) {
             int x = (l1head != null) ? l1head.val : 0;
             int y = (l2head != null) ? l2head.val : 0;
             int sum = carryDigit + x + y;
             carryDigit = sum / 10;
-            returnedList.next = new ListNode(sum % 10);
-            returnedList = returnedList.next;
+            curr.next = new ListNode(sum % 10);
+            curr = curr.next;
             if(l1head != null) l1head = l1head.next;
             if(l2head != null) l2head = l2head.next;
         }

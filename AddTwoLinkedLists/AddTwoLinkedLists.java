@@ -29,6 +29,10 @@ public class AddTwoLinkedLists {
         l21.next = l22;
 
         ListNode solutionList = addTwoNumbers(l1, l2);
+        while(solutionList.next != null) {
+            System.out.println(solutionList.val);
+            solutionList = solutionList.next;
+        }
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {

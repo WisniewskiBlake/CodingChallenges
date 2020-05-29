@@ -29,4 +29,8 @@ public class Bucket {
         if (!found)
             this.bucket.add(new Pair<Integer, Integer>(key, value));
     }
+
+    public void remove(Integer key) {
+
+    }
 }

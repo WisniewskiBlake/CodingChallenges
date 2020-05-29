@@ -15,4 +15,8 @@ public class DesignHashmap {
         }
     }
 
+    public void put(int key, int value) {
+
+    }
+
 }

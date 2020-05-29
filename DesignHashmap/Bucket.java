@@ -31,6 +31,11 @@ public class Bucket {
     }
 
     public void remove(Integer key) {
-
+        for (Pair<Integer, Integer> pair : this.bucket) {
+            if (pair.first.equals(key)) {
+                this.bucket.remove(pair);
+                break;
+            }
+        }
     }
 }

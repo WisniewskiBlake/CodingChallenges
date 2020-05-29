@@ -17,4 +17,16 @@ public class Bucket {
         }
         return -1;
     }
+
+    public void update(Integer key, Integer value) {
+        boolean found = false;
+        for (Pair<Integer, Integer> pair : this.bucket) {
+            if (pair.first.equals(key)) {
+                pair.second = value;
+                found = true;
+            }
+        }
+        if (!found)
+            this.bucket.add(new Pair<Integer, Integer>(key, value));
+    }
 }

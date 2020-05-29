@@ -16,7 +16,8 @@ public class DesignHashmap {
     }
 
     public void put(int key, int value) {
-
+        int hash_key = key % this.key_space;
+        this.hash_table.get(hash_key).update(key, value);
     }
 
 }

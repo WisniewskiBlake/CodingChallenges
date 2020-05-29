@@ -9,4 +9,12 @@ public class Bucket {
     public Bucket() {
         this.bucket = new LinkedList<Pair<Integer, Integer>>();
     }
+
+    public Integer get(Integer key) {
+        for (Pair<Integer, Integer> pair : this.bucket) {
+            if (pair.first.equals(key))
+                return pair.second;
+        }
+        return -1;
+    }
 }

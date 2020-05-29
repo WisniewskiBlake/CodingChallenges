@@ -21,7 +21,8 @@ public class DesignHashmap {
     }
 
     public int get(int key) {
-
+        int hash_key = key % this.key_space;
+        return this.hash_table.get(hash_key).get(key);
     }
 
 }

@@ -20,4 +20,8 @@ public class DesignHashmap {
         this.hash_table.get(hash_key).update(key, value);
     }
 
+    public int get(int key) {
+
+    }
+
 }

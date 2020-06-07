@@ -19,7 +19,15 @@ public class MoveZeroes {
         int idx = nums.length -1;
         int count = 0;
         if(idx>0){
-
+            for(int x=0; x<=idx; x++){
+                if(nums[x]!=0){
+                    nums[count]=nums[x];
+                    if(count!=x) {
+                        nums[x]=0;
+                    }
+                    count++;
+                }
+            }
         }
     }
 

@@ -18,6 +18,9 @@ public class MoveZeroes {
     public static void moveZeroes(int[] nums) {
         int idx = nums.length -1;
         int count = 0;
+        if(idx>0){
+
+        }
     }
 
 }

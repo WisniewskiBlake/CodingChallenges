@@ -58,6 +58,9 @@ public class MoveZeroes {
                 writePointer++;
             }
         }
+        for(int j = writePointer; j<nums.length; j++){
+            nums[j]= 0;
+        }
 
     }
 

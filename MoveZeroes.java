@@ -45,7 +45,7 @@ public class MoveZeroes {
         }
 
         for (int i = currentIndex; i < (currentIndex+zeroCount); i++){
-
+            nums[i] = 0;
         }
 
     }

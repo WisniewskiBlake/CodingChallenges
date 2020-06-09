@@ -38,6 +38,10 @@ public class MoveZeroes {
             if (nums[i] == 0){
                 zeroCount++;
             }
+            else{
+                nums[currentIndex] = nums[i];
+                currentIndex++;
+            }
         }
 
     }

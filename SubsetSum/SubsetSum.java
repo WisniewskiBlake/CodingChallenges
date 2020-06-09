@@ -16,31 +16,27 @@ import java.util.HashMap;
 //O(n) time
 public class SubsetSum {
     public static void main(String[] args) {
-        int[] set = {3, 2, 5, 3};
+        int[] set = {3, 2, 5, 1, 4};
         int sum = 6;
         int[] solved = solve(set, sum);
-        for(int i = 0; i < 2; i++) {
+        for (int i = 0; i < 2; i++) {
             System.out.println(solved[i]);
         }
 
     }
 
-        public static int[] solve(int[] nums, int target) {
-            int[] twoAddends;
 
+    public static int[] solve(int[] set, int sum) {
+        HashMap<Integer, Integer> map = new HashMap<>();
 
+        for (int i = 0; i < set.length; map.put(set[i], i), i++) {
+            if (map.containsKey(sum - set[i])) {
+                return new int[]{i, map.get(sum - set[i])};
+
+            }
         }
+        throw new IllegalArgumentException("No two sum solution");
+    }
 
 
-
-
-
-
-
-//    public static int[] solve(int[] set, int sum) {
-//        HashMap<Integer,Integer> map = new HashMap<>();
-//        int[] solutionArray = new int[2];
-//
-//        for(int i = 0; i < set.length; map.put(set[i], i), i++) {
-//            if(map.containsKey(sum - set[i])) {
-//                return new 
+}

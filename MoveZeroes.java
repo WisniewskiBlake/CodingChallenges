@@ -31,4 +31,8 @@ public class MoveZeroes {
         }
     }
 
+    public static void moveZeroes1() {
+
+    }
+
 }

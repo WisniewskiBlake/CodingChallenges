@@ -50,4 +50,8 @@ public class MoveZeroes {
 
     }
 
+    public static void moveZeroes2(int[] nums) {
+
+    }
+
 }

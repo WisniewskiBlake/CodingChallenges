@@ -35,7 +35,9 @@ public class MoveZeroes {
         int zeroCount = 0;
         int currentIndex = 0;
         for (int i =0; i < nums.length; i++){
-
+            if (nums[i] == 0){
+                zeroCount++;
+            }
         }
 
     }

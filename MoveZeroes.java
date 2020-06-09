@@ -32,6 +32,8 @@ public class MoveZeroes {
     }
 
     public static void moveZeroes1() {
+        int zeroCount = 0;
+        int currentIndex = 0;
 
     }
 

@@ -53,7 +53,10 @@ public class MoveZeroes {
     public static void moveZeroes2(int[] nums) {
         int writePointer=0;
         for(int i=0; i <nums.length; i++ ){
-
+            if(nums[i]!=0){
+                nums[writePointer] = nums[i];
+                writePointer++;
+            }
         }
 
     }

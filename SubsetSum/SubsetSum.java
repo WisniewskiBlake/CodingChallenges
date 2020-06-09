@@ -25,15 +25,22 @@ public class SubsetSum {
 
     }
 
-    public static int[] solve(int[] set, int sum) {
-        HashMap<Integer,Integer> map = new HashMap<>();
-        int[] solutionArray = new int[2];
+        public static int[] solve(int[] nums, int target) {
+            int[] twoAddends;
 
-        for(int i = 0; i < set.length; map.put(set[i], i), i++) {
-            if(map.containsKey(sum - set[i])) {
-                return new int[] {map.get(sum - set[i]), i};
-            }
+
         }
-        return solutionArray;
-    }
-}
+
+
+
+
+
+
+
+//    public static int[] solve(int[] set, int sum) {
+//        HashMap<Integer,Integer> map = new HashMap<>();
+//        int[] solutionArray = new int[2];
+//
+//        for(int i = 0; i < set.length; map.put(set[i], i), i++) {
+//            if(map.containsKey(sum - set[i])) {
+//                return new 

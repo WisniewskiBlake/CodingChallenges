@@ -44,6 +44,10 @@ public class MoveZeroes {
             }
         }
 
+        for (int i = currentIndex; i < (currentIndex+zeroCount); i++){
+
+        }
+
     }
 
 }

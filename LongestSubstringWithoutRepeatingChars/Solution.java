@@ -6,8 +6,8 @@ public class Solution {
     public static void main(String[] args) {
         //System.out.println(lengthOfLongestSubstring("dvxdf"));
         //System.out.println(lengthOfLongestSubstring("aabaabbb"));
-        System.out.println(lengthOfLongestSubstring("dvxdf"));
-        //System.out.println(lengthOfLongestSubstring("yfsrsrpzuya"));
+        //System.out.println(lengthOfLongestSubstring("dvxdf"));
+        System.out.println(lengthOfLongestSubstring("yfsrsrpzuya"));
 
     }
 
@@ -22,21 +22,15 @@ public class Solution {
             return 1;
         }
         else {
-            for (int i = 0; i < s.length(); map.put(s.charAt(i), i), i++) {
+            for (int i = 0; i < s.length(); map.put(s.charAt(i), i),
+                i++) {
                 if (map.containsKey(s.charAt(i)) && totalLength <= currentLength) {
+
                     if(!(map.get(s.charAt(i)) < (i - currentLength))) {
                         totalLength = currentLength;
                         currentLength = 0;
                     }
-                    //if the position of the previous "y" is less than the
-                    // current position of "y" - currentLength, then carry on
-                    if(map.get(s.charAt(i)) < (i - currentLength)) {
-
-                    }
-                    else if(i < s.length()-1 && !map.containsKey(s.charAt(i+1))) {
-                        currentLength = (i-1)-(map.get(s.charAt(i)));
-                    }
-                    else if(i < s.length()-1 && !(s.charAt(i+1) == s.charAt(i-1))) {
+                    if(i < s.length()-1 && !(s.charAt(i+1) == s.charAt(i-1)) && map.get(s.charAt(i)) >= currentLength) {
                         currentLength = (i-1)-(map.get(s.charAt(i)));
                     }
                 }

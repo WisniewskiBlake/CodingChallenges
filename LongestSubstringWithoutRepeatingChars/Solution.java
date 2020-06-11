@@ -4,7 +4,11 @@ import java.util.HashMap;
 
 public class Solution {
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("dvdf"));
+        //System.out.println(lengthOfLongestSubstring("dvxdf"));
+        //System.out.println(lengthOfLongestSubstring("pwwkew"));
+        //System.out.println(lengthOfLongestSubstring("pwwwww"));
+        System.out.println(lengthOfLongestSubstring("aabaab!bb"));
+
     }
 
     public static int lengthOfLongestSubstring(String s) {
@@ -20,8 +24,14 @@ public class Solution {
         else {
             for (int i = 0; i < s.length(); map.put(s.charAt(i), i), i++) {
                 if (map.containsKey(s.charAt(i)) && totalLength <= currentLength) {
-                    totalLength = currentLength;
-                    currentLength = 0;
+                    if(!(map.get(s.charAt(i)) < (i - currentLength))) {
+                        totalLength = currentLength;
+                        currentLength = 0;
+                    }
+
+                    if(i < s.length()-1 && !map.containsKey(s.charAt(i+1))) {
+                        currentLength = (i-1)-(map.get(s.charAt(i)));
+                    }
                 }
                 currentLength++;
             }
@@ -34,7 +44,6 @@ public class Solution {
             else {
                 return totalLength;
             }
-
         }
     }
 }

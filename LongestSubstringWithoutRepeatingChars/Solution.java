@@ -32,6 +32,9 @@ public class Solution {
                     if(i < s.length()-1 && !map.containsKey(s.charAt(i+1))) {
                         currentLength = (i-1)-(map.get(s.charAt(i)));
                     }
+                    else if(i < s.length()-1 && !(s.charAt(i+1) == s.charAt(i-1))) {
+                        currentLength = 1;
+                    }
                 }
                 currentLength++;
             }

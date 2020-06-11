@@ -5,9 +5,9 @@ import java.util.HashMap;
 public class Solution {
     public static void main(String[] args) {
         //System.out.println(lengthOfLongestSubstring("dvxdf"));
-        //System.out.println(lengthOfLongestSubstring("pwwkew"));
-        //System.out.println(lengthOfLongestSubstring("pwwwww"));
-        System.out.println(lengthOfLongestSubstring("aabaab!bb"));
+        //System.out.println(lengthOfLongestSubstring("aabaabbb"));
+        System.out.println(lengthOfLongestSubstring("dvxdf"));
+        //System.out.println(lengthOfLongestSubstring("yfsrsrpzuya"));
 
     }
 
@@ -28,7 +28,12 @@ public class Solution {
                         totalLength = currentLength;
                         currentLength = 0;
                     }
-                    if(i < s.length()-1 && !map.containsKey(s.charAt(i+1))) {
+                    //if the position of the previous "y" is less than the
+                    // current position of "y" - currentLength, then carry on
+                    if(map.get(s.charAt(i)) < (i - currentLength)) {
+
+                    }
+                    else if(i < s.length()-1 && !map.containsKey(s.charAt(i+1))) {
                         currentLength = (i-1)-(map.get(s.charAt(i)));
                     }
                     else if(i < s.length()-1 && !(s.charAt(i+1) == s.charAt(i-1))) {

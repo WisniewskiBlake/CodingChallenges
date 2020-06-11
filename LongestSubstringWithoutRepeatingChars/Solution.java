@@ -28,7 +28,6 @@ public class Solution {
                         totalLength = currentLength;
                         currentLength = 0;
                     }
-
                     if(i < s.length()-1 && !map.containsKey(s.charAt(i+1))) {
                         currentLength = (i-1)-(map.get(s.charAt(i)));
                     }
